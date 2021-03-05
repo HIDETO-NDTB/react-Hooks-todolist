@@ -13,7 +13,7 @@ const App = () => {
     })
     setName('')
   }
-  console.log({ state });
+
   return (
     <>
       <h1 className="app-title">TODOS</h1>
@@ -21,6 +21,19 @@ const App = () => {
         <input className="add-todo-input" onChange={e => setName(e.target.value)} value={name} />
         <button className="add-todo-button" onClick={handleAddTodo}>todo作成</button>
       </form>
+      <div className="todos-list">
+      {state.map(todo => (
+        <div className="todo-list" key={todo.id}>
+          {todo.isDone ? (
+            <i className="far fa-check-square" aria-hidden="true" />
+          ) : (
+            <i className="far fa-square" aria-hidden="true" />
+          )}
+          <p className="todo-text">{todo.name}</p>
+        <i className="fas fa-trash-alt" aria-hidden="true" />
+        </div>
+      ))}
+      </div>
     </>
   );
 }

@@ -6,6 +6,7 @@ body {
 
 .app-title {
   font-size: 36px;
+  font-weight: bold;
 }
 
 .add-todo-form {
@@ -16,6 +17,7 @@ body {
 .add-todo-input {
   height: 30px;
   width: 60%;
+  font-size: 18px;
 }
 
 .add-todo-button {
@@ -29,4 +31,32 @@ body {
 
 .add-todo-button:hover {
   cursor: pointer;
+}
+
+.todos-list {
+  margin-top: 50px;
+
+}
+
+.todo-list {
+  height: 30px;
+  width: 60%;
+  padding-left: 5px;
+  line-height: 30px;
+  border: solid 1px #c3c3c2;
+  background-color: #fff;
+  position: relative;
+}
+
+.todo-text {
+  font-size: 18px;
+  display: inline;
+  margin-left: 20px;
+}
+
+.fa-trash-alt {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: red;
 }
