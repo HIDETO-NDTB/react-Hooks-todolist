@@ -1,0 +1,32 @@
+body {
+  max-width: 800px;
+  margin: 100px auto;
+  background-color: #f0efee;
+}
+
+.app-title {
+  font-size: 36px;
+}
+
+.add-todo-form {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.add-todo-input {
+  height: 30px;
+  width: 60%;
+}
+
+.add-todo-button {
+  height: 36px;
+  width: 100px;
+  background-color: rgb(181, 241, 221);
+  margin-left: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+.add-todo-button:hover {
+  cursor: pointer;
+}
