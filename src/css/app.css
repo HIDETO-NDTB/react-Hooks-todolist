@@ -60,3 +60,7 @@ body {
   top: 8px;
   color: red;
 }
+
+.fa-trash-alt:hover {
+  cursor: pointer;
+}
