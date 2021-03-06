@@ -20,7 +20,7 @@ body {
   font-size: 18px;
 }
 
-.add-todo-button {
+.btn {
   height: 36px;
   width: 100px;
   background-color: rgb(181, 241, 221);
@@ -29,8 +29,21 @@ body {
   border-radius: 3px;
 }
 
-.add-todo-button:hover {
+.btn:hover {
   cursor: pointer;
+}
+
+.update-todo-button {
+  position: absolute;
+  top: -3px;
+  right: -104px;
+}
+
+.cancel-update-button {
+  background-color: #f5baba;
+  position: absolute;
+  top: -3px;
+  right: -208px;
 }
 
 .todos-list {
@@ -51,6 +64,11 @@ body {
 .todo-text {
   font-size: 18px;
   display: inline;
+  margin-left: 20px;
+}
+
+.todo-input {
+  font-size: 18px;
   margin-left: 20px;
 }
 

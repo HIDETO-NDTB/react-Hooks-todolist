@@ -1,3 +1,6 @@
 export const ADD_TODO = 'ADD_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
-export const TOGGLE_TODO_ISDONE = 'TOGGLE_TODO_ISDONE'; 
+export const TOGGLE_TODO_ISDONE = 'TOGGLE_TODO_ISDONE';
+export const TOGGLE_EDITMODE = 'TOGGLE_EDITMODE';
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const CANCEL_UPDATE = 'CANCEL_UPDATE'; 
