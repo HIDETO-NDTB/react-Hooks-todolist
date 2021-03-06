@@ -10,14 +10,12 @@ const todos = (state = [], action) => {
     case DELETE_TODO:
       return state.filter(todo => (todo.id !== action.id));
     case TOGGLE_TODO_ISDONE:
-      // const newIsDoneState = { id: action.id, name: action.name, isDone: !action.isDone, editMode: false };
       const toggleIsDoneIndex = state.findIndex(v => v.id === action.id);
       state[toggleIsDoneIndex].isDone = !action.isDone;
       return [...state];
     case TOGGLE_EDITMODE:
-      const newEditModeState = { id: action.id, name: action.name, isDone: action.isDone, editMode: true };
       const toggleEditModeIndex = state.findIndex(v => v.id === action.id);
-      state.splice(toggleEditModeIndex, 1, newEditModeState);
+      state[toggleEditModeIndex].editMode = true;
       return [...state];
     case UPDATE_TODO:
       const newUpdatedState = { id: action.id, name: action.name.updatedName, isDone: false, editMode: false };

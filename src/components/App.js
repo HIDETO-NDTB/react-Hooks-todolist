@@ -6,6 +6,7 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, []);
   const [name, setName] = useState('');
   const [updatedName, setUpdatedName] = useState('');
+  
   const handleAddTodo = e => {
     e.preventDefault();
     dispatch({
@@ -27,12 +28,10 @@ const App = () => {
       isDone
     })
   }
-  const handleToggleEditMode = (id, name, isDone) => {
+  const handleToggleEditMode = id => {
     dispatch({
       type: TOGGLE_EDITMODE,
       id,
-      name,
-      isDone
     })
   }
   const handleUpdateTodo = id => {
@@ -67,7 +66,7 @@ const App = () => {
           {todo.editMode ? (
             <input type="text" className="todo-input" onChange={e => setUpdatedName(e.target.value)} defaultValue={todo.name} />
           ) : (
-            <p className="todo-text" onClick={()=> handleToggleEditMode(todo.id, todo.name, todo.isDone)} >{todo.name}</p>
+            <p className="todo-text" onClick={()=> handleToggleEditMode(todo.id)} >{todo.name}</p>
           )}
             <i className="fas fa-trash-alt" aria-hidden="true" onClick={() => handleDeleteTodo(todo.id)} />
             {todo.editMode && (

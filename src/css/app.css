@@ -72,6 +72,10 @@ body {
   margin-left: 20px;
 }
 
+.far:hover {
+  cursor: pointer;
+}
+
 .fa-trash-alt {
   position: absolute;
   right: 10px;
