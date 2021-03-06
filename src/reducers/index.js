@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO } from '../actions';
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO_ISDONE } from '../actions';
 
 const todos = (state = [], action) => {
   switch (action.type) {
@@ -9,6 +9,11 @@ const todos = (state = [], action) => {
       return [...state, todo]
     case DELETE_TODO:
       return state.filter(todo => (todo.id !== action.id));
+    case TOGGLE_TODO_ISDONE:
+      const newIsDoneState = { id: action.id, name: action.name, isDone: !action.isDone };
+      const index = state.findIndex(v => v.id === action.id);
+      state.splice(index, 1, newIsDoneState);
+      return [...state];
     default:
       return state;
   }
