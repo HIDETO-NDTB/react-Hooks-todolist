@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { ADD_TODO } from '../actions';
+import AppContext from '../contexts/AppContext';
 
-const CreateTodo = ({dispatch}) => {
+const CreateTodo = () => {
   const [name, setName] = useState('');
+  const {dispatch} = useContext(AppContext);
 
   const handleAddTodo = e => {
     e.preventDefault();

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { CANCEL_UPDATE, DELETE_TODO, TOGGLE_EDITMODE, TOGGLE_TODO_ISDONE, UPDATE_TODO } from '../actions';
+import AppContext from '../contexts/AppContext';
 
-const Todo = ({todo, dispatch}) => {
+const Todo = ({todo}) => {
   const [updatedName, setUpdatedName] = useState('');
+  const { dispatch } = useContext(AppContext);
 
   const handleDeleteTodo = id => {
     dispatch({

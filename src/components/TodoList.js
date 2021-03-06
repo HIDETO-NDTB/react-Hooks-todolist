@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Todo from './Todo';
+import AppContext from '../contexts/AppContext';
 
-const TodoList = ({state, dispatch}) => {
+const TodoList = () => {
+  const { state } = useContext(AppContext);
 
   return (
     <div className="todos-list">
       {state.map(todo => (
         <div className="todo-list" key={todo.id} >
-          <Todo todo={todo} dispatch={dispatch} />
+          <Todo todo={todo} />
         </div>
       ))}
     </div>
