@@ -17,7 +17,7 @@ const CreateTodo = () => {
   return (
     <form className="add-todo-form">
       <input className="add-todo-input" onChange={e => setName(e.target.value)} value={name} />
-      <button className="btn add-todo-button" onClick={handleAddTodo}>todo作成</button>
+      <button className="btn add-todo-button" onClick={handleAddTodo} disabled={!name.length} >todo作成</button>
     </form>
   );
 }

@@ -33,6 +33,10 @@ body {
   cursor: pointer;
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+}
+
 .update-todo-button {
   position: absolute;
   top: -3px;
@@ -48,13 +52,15 @@ body {
 
 .todos-list {
   margin-top: 50px;
+}
 
+.todo-isDone {
+  background-color: rgb(231, 229, 229);
 }
 
 .todo-list {
   height: 30px;
   width: 60%;
-  padding-left: 5px;
   line-height: 30px;
   border: solid 1px #c3c3c2;
   background-color: #fff;
@@ -70,6 +76,10 @@ body {
 .todo-input {
   font-size: 18px;
   margin-left: 20px;
+}
+
+.far {
+  padding-left: 5px;
 }
 
 .far:hover {

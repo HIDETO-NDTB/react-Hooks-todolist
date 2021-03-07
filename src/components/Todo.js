@@ -41,20 +41,22 @@ const Todo = ({todo}) => {
 
   return (
     <>
-      {todo.isDone ? (
-        <i className="far fa-check-square" aria-hidden="true" onClick={() => handleToggleIsDone(todo.id, todo.isDone)} />
-      ) : (
-        <i className="far fa-square" aria-hidden="true" onClick={() => handleToggleIsDone(todo.id, todo.isDone)} />
-      )}
-      {todo.editMode ? (
-        <input type="text" className="todo-input" onChange={e => setUpdatedName(e.target.value)} defaultValue={todo.name} />
-      ) : (
-        <p className="todo-text" onClick={() => handleToggleEditMode(todo.id)} >{todo.name}</p>
-      )}
-      <i className="fas fa-trash-alt" aria-hidden="true" onClick={() => handleDeleteTodo(todo.id)} />
+      <div className={todo.isDone ? 'todo-isDone': ''}>
+        {todo.isDone ? (
+          <i className="far fa-check-square" aria-hidden="true" onClick={() => handleToggleIsDone(todo.id, todo.isDone)} />
+        ) : (
+          <i className="far fa-square" aria-hidden="true" onClick={() => handleToggleIsDone(todo.id, todo.isDone)} />
+        )}
+        {todo.editMode ? (
+          <input type="text" className="todo-input" onChange={e => setUpdatedName(e.target.value)} defaultValue={todo.name} />
+        ) : (
+          <p className="todo-text" onClick={() => handleToggleEditMode(todo.id)} >{todo.name}</p>
+        )}
+        <i className="fas fa-trash-alt" aria-hidden="true" onClick={() => handleDeleteTodo(todo.id)} />
+      </div>
       {todo.editMode && (
         <>
-          <button className="btn update-todo-button" onClick={() => handleUpdateTodo(todo.id)} >todo修正</button>
+          <button className="btn update-todo-button" onClick={() => handleUpdateTodo(todo.id)} disabled={!updatedName.length} >todo修正</button>
           <button className="btn cancel-update-button" onClick={() => handleCancelUpdate(todo.id)} >キャンセル</button>
         </>
       )}
