@@ -11,7 +11,7 @@ const TodoList = () => {
   }
 
   // filterの引数に関数ilterCollectionを渡し、state.todosを絞り込む
-  const data = (state.searchText.length) ? state.todos.filter(filterCollection) : state.todos;
+  const data = (state.searchText) ? state.todos.filter(filterCollection) : state.todos;
   
   return (
     <div className="todos-list">
