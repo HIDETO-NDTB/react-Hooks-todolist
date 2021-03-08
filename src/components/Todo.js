@@ -41,7 +41,7 @@ const Todo = ({todo}) => {
 
   return (
     <>
-      <div className={todo.isDone ? 'todo-isDone': ''}>
+      <div className={todo.isDone ? 'todoList todo-isDone': 'todoList'}>
         {todo.isDone ? (
           <i className="far fa-check-square" aria-hidden="true" onClick={() => handleToggleIsDone(todo.id, todo.isDone)} />
         ) : (
