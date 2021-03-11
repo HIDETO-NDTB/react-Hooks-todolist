@@ -8,6 +8,7 @@ import {
 } from "../actions";
 import AppContext from "../contexts/AppContext";
 import InputOrder from "./InputOrder";
+import ExpectDate from "./ExpectDate";
 
 const Todo = ({ todo }) => {
   const [updatedName, setUpdatedName] = useState("");
@@ -38,6 +39,8 @@ const Todo = ({ todo }) => {
       id,
       name: { updatedName },
       orderNo: todo.orderNo,
+      expectDate: todo.expectDate,
+      editDate: todo.editDate,
     });
   };
   const handleCancelUpdate = (id) => {
@@ -84,6 +87,7 @@ const Todo = ({ todo }) => {
           aria-hidden="true"
           onClick={() => handleDeleteTodo(todo.id)}
         />
+        <ExpectDate todo={todo} />
       </div>
       {todo.editMode && (
         <>

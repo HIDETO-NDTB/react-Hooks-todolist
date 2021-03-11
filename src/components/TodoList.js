@@ -22,6 +22,7 @@ const TodoList = () => {
 
   return (
     <div className="todos-list">
+      <h4 className="section-title">Todo 一覧</h4>
       {data.map((todo) => (
         <div className="todo-list" key={todo.id}>
           <Todo todo={todo} />

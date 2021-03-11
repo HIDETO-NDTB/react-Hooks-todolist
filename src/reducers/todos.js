@@ -6,6 +6,9 @@ import {
   UPDATE_TODO,
   CANCEL_UPDATE,
   CHANGE_TODO_ORDER,
+  TOGGLE_EDITDATE,
+  UPDATE_EXPECT_DATE,
+  CANCEL_UPDATE_EXPECT_DATE,
 } from "../actions";
 
 const todos = (state = [], action) => {
@@ -19,6 +22,8 @@ const todos = (state = [], action) => {
         isDone: false,
         editMode: false,
         orderNo: id,
+        expectDate: "日時入力",
+        editDate: false,
       };
       return [...state, todo];
     case DELETE_TODO:
@@ -38,6 +43,8 @@ const todos = (state = [], action) => {
         isDone: false,
         editMode: false,
         orderNo: action.orderNo,
+        expectDate: action.expectDate,
+        editDate: action.editDate,
       };
       const UpdeteIndex = state.findIndex((v) => v.id === action.id);
       state.splice(UpdeteIndex, 1, newUpdatedState);
@@ -53,9 +60,25 @@ const todos = (state = [], action) => {
         isDone: action.isDone,
         editMode: action.editMode,
         orderNo: action.orderNo,
+        expectDate: action.expectDate,
+        editDate: action.editDate,
       };
       const changeOrderIndex = state.findIndex((v) => v.id === action.id);
       state.splice(changeOrderIndex, 1, changeOrderNoState);
+      return [...state];
+    case TOGGLE_EDITDATE:
+      const toggleEditDateIndex = state.findIndex((v) => v.id === action.id);
+      state[toggleEditDateIndex].editDate = true;
+      return [...state];
+    case UPDATE_EXPECT_DATE:
+      const updateExpectDateIndex = state.findIndex((v) => v.id === action.id);
+      state[updateExpectDateIndex].expectDate = action.expectDate;
+      return [...state];
+    case CANCEL_UPDATE_EXPECT_DATE:
+      const cancelUpdateExpectDateIndex = state.findIndex(
+        (v) => v.id === action.id
+      );
+      state[cancelUpdateExpectDateIndex].editDate = false;
       return [...state];
     default:
       return state;

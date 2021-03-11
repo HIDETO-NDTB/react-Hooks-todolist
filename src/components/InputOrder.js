@@ -14,6 +14,8 @@ const InputOrder = (todo) => {
       isDone: todo.todo.isDone,
       editMode: todo.todo.editMode,
       orderNo,
+      expectDate: todo.todo.expectDate,
+      editDate: todo.todo.editDate,
     });
   };
   return (
