@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import AppContext from "../contexts/AppContext";
-import { TOGGLE_ISDONE_EDITMODE, DELETE_ISDONE_TODO } from "../actions";
+import {
+  TOGGLE_ISDONE_EDITMODE,
+  UPDATE_ISDONE_TODO,
+  CANCEL_UPDATE_ISDONE,
+  DELETE_ISDONE_TODO,
+} from "../actions";
 
 const IsDoneTodoList = () => {
   const { state, dispatch } = useContext(AppContext);
   const [updatedIsDoneName, setUpdatedIsDoneName] = useState("");
-  console.log(updatedIsDoneName);
 
   const handleToggleIsDoneEditMode = (id) => {
     dispatch({
@@ -13,7 +17,23 @@ const IsDoneTodoList = () => {
       id,
     });
   };
-
+  const handleUpdateIsDoneTodo = (id) => {
+    dispatch({
+      type: UPDATE_ISDONE_TODO,
+      id,
+      name: updatedIsDoneName,
+    });
+    const updateIsDoneTodoIndex = state.isDoneTodos.findIndex(
+      (v) => v.id === id
+    );
+    state.isDoneTodos[updateIsDoneTodoIndex].editMode = false;
+  };
+  const handleCancelUpdateIsDone = (id) => {
+    dispatch({
+      type: CANCEL_UPDATE_ISDONE,
+      id,
+    });
+  };
   const handleDeleteIsDoneTodo = (id) => {
     dispatch({
       type: DELETE_ISDONE_TODO,
@@ -46,6 +66,23 @@ const IsDoneTodoList = () => {
             aria-hidden="true"
             onClick={() => handleDeleteIsDoneTodo(todo.id)}
           />
+          {todo.editMode && (
+            <>
+              <button
+                className="btn update-todo-button"
+                onClick={() => handleUpdateIsDoneTodo(todo.id)}
+                disabled={!updatedIsDoneName.length}
+              >
+                todo修正
+              </button>
+              <button
+                className="btn cancel-update-button"
+                onClick={() => handleCancelUpdateIsDone(todo.id)}
+              >
+                キャンセル
+              </button>
+            </>
+          )}
         </div>
       ))}
     </div>

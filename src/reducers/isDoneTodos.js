@@ -1,6 +1,8 @@
 import {
   ADD_ISDONE_TODOS,
   TOGGLE_ISDONE_EDITMODE,
+  CANCEL_UPDATE_ISDONE,
+  UPDATE_ISDONE_TODO,
   DELETE_ISDONE_TODO,
 } from "../actions";
 
@@ -22,6 +24,16 @@ const isDoneTodos = (state = [], action) => {
     case TOGGLE_ISDONE_EDITMODE:
       const toggleIsDoneIndex = state.findIndex((v) => v.id === action.id);
       state[toggleIsDoneIndex].editMode = true;
+      return [...state];
+    case UPDATE_ISDONE_TODO:
+      const updatedIsDoneTodoIndex = state.findIndex((v) => v.id === action.id);
+      state[updatedIsDoneTodoIndex].name = action.name;
+      return [...state];
+    case CANCEL_UPDATE_ISDONE:
+      const cancalUpdateIsDoneIndex = state.findIndex(
+        (v) => v.id === action.id
+      );
+      state[cancalUpdateIsDoneIndex].editMode = false;
       return [...state];
     case DELETE_ISDONE_TODO:
       return state.filter((todo) => todo.id !== action.id);
