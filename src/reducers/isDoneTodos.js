@@ -3,7 +3,7 @@ import {
   TOGGLE_ISDONE_EDITMODE,
   CANCEL_UPDATE_ISDONE,
   UPDATE_ISDONE_TODO,
-  DELETE_ISDONE_TODO,
+  DELETE_TODO,
   CHANGE_TODO_ORDER,
   TOGGLE_EDITDATE,
   UPDATE_EXPECT_DATE,
@@ -39,7 +39,7 @@ const isDoneTodos = (state = [], action) => {
       );
       state[cancalUpdateIsDoneIndex].editMode = false;
       return [...state];
-    case DELETE_ISDONE_TODO:
+    case DELETE_TODO:
       return state.filter((todo) => todo.id !== action.id);
     case CHANGE_TODO_ORDER:
       const changeTodoOrderIndex = state.findIndex((v) => v.id === action.id);

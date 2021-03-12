@@ -4,10 +4,10 @@ import {
   TOGGLE_ISDONE_EDITMODE,
   UPDATE_ISDONE_TODO,
   CANCEL_UPDATE_ISDONE,
-  DELETE_ISDONE_TODO,
 } from "../actions";
 import InputOrder from "./InputOrder";
 import ExpectDate from "./ExpectDate";
+import Trash from "./Trash";
 
 const IsDoneTodoList = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -37,12 +37,6 @@ const IsDoneTodoList = () => {
       id,
     });
   };
-  const handleDeleteIsDoneTodo = (id) => {
-    dispatch({
-      type: DELETE_ISDONE_TODO,
-      id,
-    });
-  };
 
   state.isDoneTodos.sort((a, b) => {
     return a.orderNo - b.orderNo;
@@ -68,11 +62,7 @@ const IsDoneTodoList = () => {
               {todo.name}
             </p>
           )}
-          <i
-            className="fas fa-trash-alt"
-            aria-hidden="true"
-            onClick={() => handleDeleteIsDoneTodo(todo.id)}
-          />
+          <Trash todo={todo} />
           {todo.editMode && (
             <>
               <button

@@ -1,25 +1,14 @@
 import React, { useState, useContext } from "react";
-import {
-  CANCEL_UPDATE,
-  DELETE_TODO,
-  TOGGLE_EDITMODE,
-  UPDATE_TODO,
-} from "../actions";
+import { CANCEL_UPDATE, TOGGLE_EDITMODE, UPDATE_TODO } from "../actions";
 import AppContext from "../contexts/AppContext";
 import InputOrder from "./InputOrder";
 import ExpectDate from "./ExpectDate";
 import CheckBox from "./CheckBox";
+import Trash from "./Trash";
 
 const Todo = ({ todo }) => {
   const [updatedName, setUpdatedName] = useState("");
   const { dispatch } = useContext(AppContext);
-
-  const handleDeleteTodo = (id) => {
-    dispatch({
-      type: DELETE_TODO,
-      id,
-    });
-  };
 
   const handleToggleEditMode = (id) => {
     dispatch({
@@ -63,11 +52,7 @@ const Todo = ({ todo }) => {
           </p>
         )}
         <InputOrder todo={todo} />
-        <i
-          className="fas fa-trash-alt"
-          aria-hidden="true"
-          onClick={() => handleDeleteTodo(todo.id)}
-        />
+        <Trash todo={todo} />
         <ExpectDate todo={todo} />
       </div>
       {todo.editMode && (
