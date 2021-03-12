@@ -3,13 +3,12 @@ import {
   CANCEL_UPDATE,
   DELETE_TODO,
   TOGGLE_EDITMODE,
-  TOGGLE_TODO_ISDONE,
   UPDATE_TODO,
-  ADD_ISDONE_TODOS,
 } from "../actions";
 import AppContext from "../contexts/AppContext";
 import InputOrder from "./InputOrder";
 import ExpectDate from "./ExpectDate";
+import CheckBox from "./CheckBox";
 
 const Todo = ({ todo }) => {
   const [updatedName, setUpdatedName] = useState("");
@@ -21,13 +20,7 @@ const Todo = ({ todo }) => {
       id,
     });
   };
-  const handleToggleIsDone = (id, isDone) => {
-    dispatch({
-      type: TOGGLE_TODO_ISDONE,
-      id,
-      isDone,
-    });
-  };
+
   const handleToggleEditMode = (id) => {
     dispatch({
       type: TOGGLE_EDITMODE,
@@ -49,32 +42,11 @@ const Todo = ({ todo }) => {
       id,
     });
   };
-  const handleMoveToIsDone = (id, name, orderNo, expectDate) => {
-    dispatch({
-      type: ADD_ISDONE_TODOS,
-      id,
-      name,
-      orderNo,
-      expectDate,
-    });
-  };
 
   return (
     <>
       <div className={todo.isDone ? "todoList todo-isDone" : "todoList"}>
-        {todo.isDone ? (
-          <i
-            className="far fa-check-square"
-            aria-hidden="true"
-            onClick={() => handleToggleIsDone(todo.id, todo.isDone)}
-          />
-        ) : (
-          <i
-            className="far fa-square"
-            aria-hidden="true"
-            onClick={() => handleToggleIsDone(todo.id, todo.isDone)}
-          />
-        )}
+        <CheckBox todo={todo} />
         {todo.editMode ? (
           <input
             type="text"
@@ -114,21 +86,6 @@ const Todo = ({ todo }) => {
             キャンセル
           </button>
         </>
-      )}
-      {todo.isDone && (
-        <button
-          className="btn move-to-isDone-button"
-          onClick={() =>
-            handleMoveToIsDone(
-              todo.id,
-              todo.name,
-              todo.orderNo,
-              todo.expectDate
-            )
-          }
-        >
-          処理済みへ
-        </button>
       )}
     </>
   );
