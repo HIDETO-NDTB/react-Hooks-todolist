@@ -6,6 +6,7 @@ import {
   CANCEL_UPDATE_ISDONE,
   DELETE_ISDONE_TODO,
 } from "../actions";
+import InputOrder from "./InputOrder";
 
 const IsDoneTodoList = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -40,6 +41,10 @@ const IsDoneTodoList = () => {
       id,
     });
   };
+
+  state.isDoneTodos.sort((a, b) => {
+    return a.orderNo - b.orderNo;
+  });
 
   return (
     <div className="todos-list">
@@ -83,6 +88,7 @@ const IsDoneTodoList = () => {
               </button>
             </>
           )}
+          <InputOrder todo={todo} />
         </div>
       ))}
     </div>

@@ -6,7 +6,7 @@ import {
   CANCEL_UPDATE_EXPECT_DATE,
 } from "../actions";
 
-const ExpectDate = (todo) => {
+const ExpectDate = ({ todo }) => {
   const { dispatch } = useContext(AppContext);
   const [expectDate, setExpectDate] = useState("");
   const handleToggleEditDate = (id) => {
@@ -21,7 +21,7 @@ const ExpectDate = (todo) => {
       id,
       expectDate,
     });
-    todo.todo.editDate = false;
+    todo.editDate = false;
   };
   const handleCancelEditDate = (id) => {
     dispatch({
@@ -31,33 +31,33 @@ const ExpectDate = (todo) => {
   };
   return (
     <div className="expect-date-components">
-      {todo.todo.editDate ? (
+      {todo.editDate ? (
         <input
           type="text"
           className="edit-date-input"
-          defaultValue={todo.todo.expectDate}
+          defaultValue={todo.expectDate}
           onChange={(e) => setExpectDate(e.target.value)}
         />
       ) : (
         <p
           className="expect-date"
-          onClick={() => handleToggleEditDate(todo.todo.id)}
+          onClick={() => handleToggleEditDate(todo.id)}
         >
-          {todo.todo.expectDate}
+          {todo.expectDate}
         </p>
       )}
-      {todo.todo.editDate ? (
+      {todo.editDate ? (
         <>
           <button
             className="btn update-date-button"
             disabled={!expectDate}
-            onClick={() => handleEditExpectDate(todo.todo.id)}
+            onClick={() => handleEditExpectDate(todo.id)}
           >
             日付修正
           </button>
           <button
             className="btn cancel-update-date-button"
-            onClick={() => handleCancelEditDate(todo.todo.id)}
+            onClick={() => handleCancelEditDate(todo.id)}
           >
             キャンセル
           </button>

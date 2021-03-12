@@ -4,6 +4,7 @@ import {
   CANCEL_UPDATE_ISDONE,
   UPDATE_ISDONE_TODO,
   DELETE_ISDONE_TODO,
+  CHANGE_TODO_ORDER,
 } from "../actions";
 
 const isDoneTodos = (state = [], action) => {
@@ -37,6 +38,12 @@ const isDoneTodos = (state = [], action) => {
       return [...state];
     case DELETE_ISDONE_TODO:
       return state.filter((todo) => todo.id !== action.id);
+    case CHANGE_TODO_ORDER:
+      const changeTodoOrderIndex = state.findIndex((v) => v.id === action.id);
+      if (changeTodoOrderIndex !== -1) {
+        state[changeTodoOrderIndex].orderNo = action.orderNo;
+      }
+      return [...state];
     default:
       return state;
   }

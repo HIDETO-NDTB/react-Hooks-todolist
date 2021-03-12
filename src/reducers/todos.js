@@ -55,17 +55,10 @@ const todos = (state = [], action) => {
       state[cancelUpdateIndex].editMode = false;
       return [...state];
     case CHANGE_TODO_ORDER:
-      const changeOrderNoState = {
-        id: action.id,
-        name: action.name,
-        isDone: action.isDone,
-        editMode: action.editMode,
-        orderNo: action.orderNo,
-        expectDate: action.expectDate,
-        editDate: action.editDate,
-      };
-      const changeOrderIndex = state.findIndex((v) => v.id === action.id);
-      state.splice(changeOrderIndex, 1, changeOrderNoState);
+      const changeTodoOrderIndex = state.findIndex((v) => v.id === action.id);
+      if (changeTodoOrderIndex !== -1) {
+        state[changeTodoOrderIndex].orderNo = action.orderNo;
+      }
       return [...state];
     case TOGGLE_EDITDATE:
       const toggleEditDateIndex = state.findIndex((v) => v.id === action.id);
