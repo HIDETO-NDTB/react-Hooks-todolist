@@ -38,17 +38,8 @@ const todos = (state = [], action) => {
       state[toggleEditModeIndex].editMode = true;
       return [...state];
     case UPDATE_TODO:
-      const newUpdatedState = {
-        id: action.id,
-        name: action.name.updatedName,
-        isDone: false,
-        editMode: false,
-        orderNo: action.orderNo,
-        expectDate: action.expectDate,
-        editDate: action.editDate,
-      };
-      const UpdeteIndex = state.findIndex((v) => v.id === action.id);
-      state.splice(UpdeteIndex, 1, newUpdatedState);
+      const updateTodoIndex = state.findIndex((v) => v.id === action.id);
+      state[updateTodoIndex].name = action.name;
       return [...state];
     case CANCEL_UPDATE:
       const cancelUpdateIndex = state.findIndex((v) => v.id === action.id);
@@ -62,17 +53,21 @@ const todos = (state = [], action) => {
       return [...state];
     case TOGGLE_EDITDATE:
       const toggleEditDateIndex = state.findIndex((v) => v.id === action.id);
-      state[toggleEditDateIndex].editDate = true;
+      if (toggleEditDateIndex !== -1) {
+        state[toggleEditDateIndex].editDate = true;
+      }
       return [...state];
     case UPDATE_EXPECT_DATE:
       const updateExpectDateIndex = state.findIndex((v) => v.id === action.id);
-      state[updateExpectDateIndex].expectDate = action.expectDate;
+      if (updateExpectDateIndex !== -1) {
+        state[updateExpectDateIndex].expectDate = action.expectDate;
+      }
       return [...state];
     case CANCEL_UPDATE_EXPECT_DATE:
-      const cancelUpdateExpectDateIndex = state.findIndex(
-        (v) => v.id === action.id
-      );
-      state[cancelUpdateExpectDateIndex].editDate = false;
+      const cancelUpdateDateIndex = state.findIndex((v) => v.id === action.id);
+      if (cancelUpdateDateIndex !== -1) {
+        state[cancelUpdateDateIndex].editDate = false;
+      }
       return [...state];
     case ADD_ISDONE_TODOS:
       return state.filter((todo) => todo.id !== action.id);

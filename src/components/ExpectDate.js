@@ -22,6 +22,7 @@ const ExpectDate = ({ todo }) => {
       expectDate,
     });
     todo.editDate = false;
+    setExpectDate("");
   };
   const handleCancelEditDate = (id) => {
     dispatch({

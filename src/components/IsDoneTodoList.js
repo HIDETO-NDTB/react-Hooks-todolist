@@ -7,6 +7,7 @@ import {
   DELETE_ISDONE_TODO,
 } from "../actions";
 import InputOrder from "./InputOrder";
+import ExpectDate from "./ExpectDate";
 
 const IsDoneTodoList = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -28,6 +29,7 @@ const IsDoneTodoList = () => {
       (v) => v.id === id
     );
     state.isDoneTodos[updateIsDoneTodoIndex].editMode = false;
+    setUpdatedIsDoneName("");
   };
   const handleCancelUpdateIsDone = (id) => {
     dispatch({
@@ -89,6 +91,7 @@ const IsDoneTodoList = () => {
             </>
           )}
           <InputOrder todo={todo} />
+          <ExpectDate todo={todo} />
         </div>
       ))}
     </div>

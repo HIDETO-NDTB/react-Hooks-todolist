@@ -38,11 +38,10 @@ const Todo = ({ todo }) => {
     dispatch({
       type: UPDATE_TODO,
       id,
-      name: { updatedName },
-      orderNo: todo.orderNo,
-      expectDate: todo.expectDate,
-      editDate: todo.editDate,
+      name: updatedName,
     });
+    todo.editMode = false;
+    setUpdatedName("");
   };
   const handleCancelUpdate = (id) => {
     dispatch({
