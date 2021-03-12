@@ -199,3 +199,8 @@ body {
   top: -34px;
   right: -208px;
 }
+.move-to-isDone-button {
+  position: absolute;
+  top: -2px;
+  right: -110px;
+}

@@ -3,6 +3,7 @@ import reducer from "../reducers";
 import CreateTodo from "./CreateTodo";
 import TodoList from "./TodoList";
 import SearchText from "./SearchText";
+import IsDoneTodoList from "./IsDoneTodoList";
 import AppContext from "../contexts/AppContext";
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
     ? JSON.parse(localStorageState)
     : {
         todos: [],
+        isDoneTodos: [],
         searchText: [],
       };
 
@@ -28,6 +30,7 @@ const App = () => {
       <CreateTodo />
       <SearchText />
       <TodoList />
+      <IsDoneTodoList />
     </AppContext.Provider>
   );
 };

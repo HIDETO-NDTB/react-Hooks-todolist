@@ -5,6 +5,7 @@ import {
   TOGGLE_EDITMODE,
   TOGGLE_TODO_ISDONE,
   UPDATE_TODO,
+  ADD_ISDONE_TODOS,
 } from "../actions";
 import AppContext from "../contexts/AppContext";
 import InputOrder from "./InputOrder";
@@ -47,6 +48,15 @@ const Todo = ({ todo }) => {
     dispatch({
       type: CANCEL_UPDATE,
       id,
+    });
+  };
+  const handleMoveToIsDone = (id, name, orderNo, expectDate) => {
+    dispatch({
+      type: ADD_ISDONE_TODOS,
+      id,
+      name,
+      orderNo,
+      expectDate,
     });
   };
 
@@ -105,6 +115,21 @@ const Todo = ({ todo }) => {
             キャンセル
           </button>
         </>
+      )}
+      {todo.isDone && (
+        <button
+          className="btn move-to-isDone-button"
+          onClick={() =>
+            handleMoveToIsDone(
+              todo.id,
+              todo.name,
+              todo.orderNo,
+              todo.expectDate
+            )
+          }
+        >
+          処理済みへ
+        </button>
       )}
     </>
   );

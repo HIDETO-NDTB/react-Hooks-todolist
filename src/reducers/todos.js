@@ -9,6 +9,7 @@ import {
   TOGGLE_EDITDATE,
   UPDATE_EXPECT_DATE,
   CANCEL_UPDATE_EXPECT_DATE,
+  ADD_ISDONE_TODOS,
 } from "../actions";
 
 const todos = (state = [], action) => {
@@ -80,6 +81,8 @@ const todos = (state = [], action) => {
       );
       state[cancelUpdateExpectDateIndex].editDate = false;
       return [...state];
+    case ADD_ISDONE_TODOS:
+      return state.filter((todo) => todo.id !== action.id);
     default:
       return state;
   }
