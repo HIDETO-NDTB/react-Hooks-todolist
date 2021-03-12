@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
-import { CANCEL_UPDATE, TOGGLE_EDITMODE, UPDATE_TODO } from "../actions";
-import AppContext from "../contexts/AppContext";
-import InputOrder from "./InputOrder";
-import ExpectDate from "./ExpectDate";
-import CheckBox from "./CheckBox";
-import Trash from "./Trash";
+import { CANCEL_UPDATE, TOGGLE_EDITMODE, UPDATE_TODO } from "../../actions";
+import AppContext from "../../contexts/AppContext";
+import InputOrder from "../parts/InputOrder";
+import ExpectDate from "../parts/ExpectDate";
+import CheckBox from "../parts/CheckBox";
+import Trash from "../parts/Trash";
 
 const Todo = ({ todo }) => {
   const [updatedName, setUpdatedName] = useState("");

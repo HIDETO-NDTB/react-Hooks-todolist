@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Todo from "./Todo";
-import AppContext from "../contexts/AppContext";
+import AppContext from "../../contexts/AppContext";
 
 const TodoList = () => {
   const { state } = useContext(AppContext);

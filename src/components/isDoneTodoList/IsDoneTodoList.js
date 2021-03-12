@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import AppContext from "../contexts/AppContext";
+import AppContext from "../../contexts/AppContext";
 import {
   TOGGLE_ISDONE_EDITMODE,
   UPDATE_ISDONE_TODO,
   CANCEL_UPDATE_ISDONE,
-} from "../actions";
-import InputOrder from "./InputOrder";
-import ExpectDate from "./ExpectDate";
-import Trash from "./Trash";
+} from "../../actions";
+import InputOrder from "../parts/InputOrder";
+import ExpectDate from "../parts/ExpectDate";
+import Trash from "../parts/Trash";
 
 const IsDoneTodoList = () => {
   const { state, dispatch } = useContext(AppContext);

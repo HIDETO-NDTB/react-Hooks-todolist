@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import AppContext from "../contexts/AppContext";
-import { DELETE_TODO } from "../actions";
+import AppContext from "../../contexts/AppContext";
+import { DELETE_TODO } from "../../actions";
 
 const Trash = ({ todo }) => {
   const { dispatch } = useContext(AppContext);

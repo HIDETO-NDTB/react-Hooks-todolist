@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import AppContext from "../contexts/AppContext";
+import AppContext from "../../contexts/AppContext";
 import {
   TOGGLE_EDITDATE,
   UPDATE_EXPECT_DATE,
   CANCEL_UPDATE_EXPECT_DATE,
-} from "../actions";
+} from "../../actions";
 
 const ExpectDate = ({ todo }) => {
   const { dispatch } = useContext(AppContext);

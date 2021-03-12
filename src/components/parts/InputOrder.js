@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import AppContext from "../contexts/AppContext";
-import { CHANGE_TODO_ORDER } from "../actions";
+import AppContext from "../../contexts/AppContext";
+import { CHANGE_TODO_ORDER } from "../../actions";
 
 const InputOrder = ({ todo }) => {
   const { dispatch } = useContext(AppContext);

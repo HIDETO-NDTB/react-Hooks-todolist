@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import AppContext from "../contexts/AppContext";
-import { TOGGLE_TODO_ISDONE, ADD_ISDONE_TODOS } from "../actions";
+import AppContext from "../../contexts/AppContext";
+import { TOGGLE_TODO_ISDONE, ADD_ISDONE_TODOS } from "../../actions";
 
 const CheckBox = ({ todo }) => {
   const { dispatch } = useContext(AppContext);
