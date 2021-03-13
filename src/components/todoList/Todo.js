@@ -9,11 +9,11 @@ const Todo = ({ todo }) => {
   return (
     <>
       <div className={todo.isDone ? "todoList todo-isDone" : "todoList"}>
+        <ExpectDate todo={todo} />
         <CheckBox todo={todo} />
         <TodoName todo={todo} />
         <InputOrder todo={todo} />
         <Trash todo={todo} />
-        <ExpectDate todo={todo} />
       </div>
     </>
   );

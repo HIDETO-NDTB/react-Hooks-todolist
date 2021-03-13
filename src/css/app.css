@@ -176,27 +176,28 @@ body {
 }
 .expect-date {
   position: absolute;
-  top: -30px;
+  top: 0;
   left: -80px;
 }
 
 .edit-date-input {
   position: absolute;
-  top: -25px;
+  top: 0;
   left: -80px;
   width: 65px;
+  height: 26px;
 }
 
 .update-date-button {
   position: absolute;
-  top: -34px;
+  top: 0;
   right: -104px;
 }
 
 .cancel-update-date-button {
   background-color: #f5baba;
   position: absolute;
-  top: -34px;
+  top: 0;
   right: -208px;
 }
 .move-to-isDone-button {
