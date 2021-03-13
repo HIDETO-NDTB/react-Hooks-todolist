@@ -1,8 +1,8 @@
 import {
   ADD_ISDONE_TODOS,
-  TOGGLE_ISDONE_EDITMODE,
-  CANCEL_UPDATE_ISDONE,
-  UPDATE_ISDONE_TODO,
+  TOGGLE_EDITMODE,
+  CANCEL_UPDATE,
+  UPDATE_TODO,
   DELETE_TODO,
   CHANGE_TODO_ORDER,
   TOGGLE_EDITDATE,
@@ -25,19 +25,23 @@ const isDoneTodos = (state = [], action) => {
         editDate: false,
       };
       return [...state, newIsdoneTodo];
-    case TOGGLE_ISDONE_EDITMODE:
-      const toggleIsDoneIndex = state.findIndex((v) => v.id === action.id);
-      state[toggleIsDoneIndex].editMode = true;
+    case TOGGLE_EDITMODE:
+      const toggleEditModeIndex = state.findIndex((v) => v.id === action.id);
+      if (toggleEditModeIndex !== -1) {
+        state[toggleEditModeIndex].editMode = true;
+      }
       return [...state];
-    case UPDATE_ISDONE_TODO:
-      const updatedIsDoneTodoIndex = state.findIndex((v) => v.id === action.id);
-      state[updatedIsDoneTodoIndex].name = action.name;
+    case UPDATE_TODO:
+      const updateTodoIndex = state.findIndex((v) => v.id === action.id);
+      if (updateTodoIndex !== -1) {
+        state[updateTodoIndex].name = action.name;
+      }
       return [...state];
-    case CANCEL_UPDATE_ISDONE:
-      const cancalUpdateIsDoneIndex = state.findIndex(
-        (v) => v.id === action.id
-      );
-      state[cancalUpdateIsDoneIndex].editMode = false;
+    case CANCEL_UPDATE:
+      const cancelUpdateIndex = state.findIndex((v) => v.id === action.id);
+      if (cancelUpdateIndex !== -1) {
+        state[cancelUpdateIndex].editMode = false;
+      }
       return [...state];
     case DELETE_TODO:
       return state.filter((todo) => todo.id !== action.id);

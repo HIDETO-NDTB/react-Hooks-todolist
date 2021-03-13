@@ -1,9 +1,9 @@
 import React, { useReducer, useEffect } from "react";
 import reducer from "../reducers";
-import CreateTodo from "./CreateTodo";
-import TodoList from "./todoList/TodoList";
-import SearchText from "./SearchText";
-import IsDoneTodoList from "./isDoneTodoList/IsDoneTodoList";
+import CreateTodo from "./views/CreateTodo";
+import TodoList from "./views/todoList/TodoList";
+import SearchText from "./views/SearchText";
+import IsDoneTodoList from "./views/isDoneTodoList/IsDoneTodoList";
 import AppContext from "../contexts/AppContext";
 
 const App = () => {

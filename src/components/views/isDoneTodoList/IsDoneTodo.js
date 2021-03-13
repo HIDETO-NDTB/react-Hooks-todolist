@@ -1,8 +1,8 @@
 import React from "react";
-import ExpectDate from "../parts/ExpectDate";
-import TodoName from "../parts/TodoName";
-import InputOrder from "../parts/InputOrder";
-import Trash from "../parts/Trash";
+import ExpectDate from "../../parts/ExpectDate";
+import TodoName from "../../parts/TodoName";
+import InputOrder from "../../parts/InputOrder";
+import Trash from "../../parts/Trash";
 
 const IsDoneTodo = ({ todo }) => {
   return (

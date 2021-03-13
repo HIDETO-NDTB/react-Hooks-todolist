@@ -35,15 +35,21 @@ const todos = (state = [], action) => {
       return [...state];
     case TOGGLE_EDITMODE:
       const toggleEditModeIndex = state.findIndex((v) => v.id === action.id);
-      state[toggleEditModeIndex].editMode = true;
+      if (toggleEditModeIndex !== -1) {
+        state[toggleEditModeIndex].editMode = true;
+      }
       return [...state];
     case UPDATE_TODO:
       const updateTodoIndex = state.findIndex((v) => v.id === action.id);
-      state[updateTodoIndex].name = action.name;
+      if (updateTodoIndex !== -1) {
+        state[updateTodoIndex].name = action.name;
+      }
       return [...state];
     case CANCEL_UPDATE:
       const cancelUpdateIndex = state.findIndex((v) => v.id === action.id);
-      state[cancelUpdateIndex].editMode = false;
+      if (cancelUpdateIndex !== -1) {
+        state[cancelUpdateIndex].editMode = false;
+      }
       return [...state];
     case CHANGE_TODO_ORDER:
       const changeTodoOrderIndex = state.findIndex((v) => v.id === action.id);
