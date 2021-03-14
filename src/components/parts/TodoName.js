@@ -32,7 +32,9 @@ const TodoName = ({ todo }) => {
     <>
       <input
         type="text"
-        className="todo-input"
+        className={
+          todo.isDoneTodoList ? "todo-input isDone-todo-input" : "todo-input"
+        }
         onChange={(e) => setUpdatedName(e.target.value)}
         defaultValue={todo.name}
       />
@@ -51,7 +53,12 @@ const TodoName = ({ todo }) => {
       </button>
     </>
   ) : (
-    <p className="todo-text" onClick={() => handleToggleEditMode(todo.id)}>
+    <p
+      className={
+        todo.isDoneTodoList ? "todo-text isDone-todo-text" : "todo-text"
+      }
+      onClick={() => handleToggleEditMode(todo.id)}
+    >
       {todo.name}
     </p>
   );

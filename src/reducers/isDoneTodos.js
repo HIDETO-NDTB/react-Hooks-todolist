@@ -23,6 +23,7 @@ const isDoneTodos = (state = [], action) => {
         orderNo: action.orderNo,
         expectDate: action.expectDate,
         editDate: false,
+        isDoneTodoList: true,
       };
       return [...state, newIsdoneTodo];
     case TOGGLE_EDITMODE:

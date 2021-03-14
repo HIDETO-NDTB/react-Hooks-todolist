@@ -113,51 +113,6 @@ body {
   border: solid 1px gray;
 }
 
-@media screen and (max-width: 420px) {
-  body {
-    max-width: 380px;
-    margin: 50px auto;
-  }
-
-  .add-todo-form {
-    width: 100%;
-  }
-
-  .add-todo-input {
-    width: 70%;
-  }
-
-  .input-searchText {
-    width: 70%;
-  }
-
-  .todo-list {
-    width: 100%;
-    height: 100%;
-  }
-
-  .todoList {
-    width: 100%;
-  }
-
-  .update-todo-button {
-    position: unset;
-    margin-left: 40px;
-  }
-
-  .cancel-update-button {
-    position: unset;
-  }
-
-  .todo-input {
-    width: 70%;
-  }
-
-  .btn {
-    height: 30px;
-  }
-}
-
 .order-no-input {
   position: absolute;
   top: 5px;
@@ -202,6 +157,65 @@ body {
 }
 .move-to-isDone-button {
   position: absolute;
-  top: -2px;
+  top: 0;
   right: -110px;
+}
+
+.isDone-todo-text {
+  margin-left: 38px;
+}
+
+.isDone-todo-input {
+  margin-left: 38px;
+}
+
+@media screen and (max-width: 420px) {
+  body {
+    max-width: 380px;
+    margin: 50px auto;
+  }
+
+  .add-todo-form {
+    width: 100%;
+  }
+
+  .add-todo-input {
+    width: 70%;
+  }
+
+  .input-searchText {
+    width: 70%;
+  }
+
+  .todo-list {
+    width: 100%;
+    height: 100%;
+  }
+
+  .todoList {
+    width: 100%;
+  }
+
+  .update-todo-button {
+    position: unset;
+    margin-left: 40px;
+  }
+
+  .cancel-update-button {
+    position: unset;
+  }
+
+  .todo-input {
+    width: 64%;
+  }
+
+  .btn {
+    height: 30px;
+  }
+
+  .move-to-isDone-button {
+    position: absolute;
+    top: 0;
+    right: 90px;
+  }
 }
